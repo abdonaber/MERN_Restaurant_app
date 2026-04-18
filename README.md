@@ -1,57 +1,62 @@
-# My ReasonReact App
+# FastFeast - Production Ready Restaurant Management System
 
-## Installing
+FastFeast is a full-stack MERN application for restaurant management, featuring real-time order tracking, Stripe payments, and a comprehensive admin dashboard.
 
-You can install all the needed dependencies by running `yarn`.
+## Features
 
-## Watcher
+- **Customer:**
+  - Browse menu with search and category filters.
+  - Cart system with Zustand.
+  - Secure checkout with Stripe.
+  - Real-time order status tracking via Socket.io.
+- **Admin/Staff:**
+  - Product and Category management (CRUD).
+  - Image uploads via Cloudinary.
+  - Real-time Order Management (Update status).
+- **Security:**
+  - JWT (Access & Refresh tokens).
+  - Role-Based Access Control (RBAC).
+  - Rate limiting, Helmet, XSS protection.
+  - Zod validation for all requests.
 
-```sh
-$ yarn start
+## Tech Stack
 
-yarn run v1.12.3
-$ bsb -make-world -w
-ninja: no work to do.
-ninja: no work to do.
->>>> Start compiling
-ninja: no work to do.
->>>> Finish compiling 12 mseconds
-```
+- **Frontend:** React, Vite, Tailwind CSS, React Query, Zustand, Axios, Socket.io-client, Stripe-js.
+- **Backend:** Node.js, Express, MongoDB (Mongoose), Redis, Socket.io, Stripe, Cloudinary.
+- **DevOps:** Docker, Docker Compose, Nginx.
 
-## Building and Bundling
+## Getting Started
 
-```sh
-$ yarn build
+### Prerequisites
 
-yarn run v1.12.3
-$ bsb -make-world && fpack build ./lib/js/src/index.bs.js --development
-ninja: no work to do.
-ninja: no work to do.
-ninja: no work to do.
-Cache: used
-Done in 0.040s. Bundle: 910Kb. Modules: 16.
+- Docker & Docker Compose
+- Node.js (v20+)
 
-✨  Done in 0.30s.
-```
+### Installation
+
+1. Clone the repository.
+2. Create a `.env` file in the `server` directory based on `docker-compose.yml` environment variables.
+3. Run the application:
+   ```bash
+   docker compose up --build
+   ```
 
 ## Testing
 
-```sh
-$ yarn test
-
-yarn run v1.12.3
-$ bsb -make-world && jest
-ninja: no work to do.
-ninja: no work to do.
-ninja: no work to do.
-PASS  lib/js/__tests__/model_test.bs.js
- some test
-     ✓ passes! (5ms)
-
-Test Suites: 1 passed, 1 total
-Tests:       1 passed, 1 total
-Snapshots:   0 total
-Time:        1.572s
-Ran all test suites.
-✨  Done in 2.81s.
+### Backend
+```bash
+cd server
+npm test
 ```
+
+### Frontend
+```bash
+cd client
+npm test
+```
+
+## Structure
+- `/client`: React frontend.
+- `/server`: Express backend.
+- `/nginx`: Nginx reverse proxy configuration.
+- `docker-compose.yml`: Full stack orchestration.
